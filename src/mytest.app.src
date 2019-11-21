@@ -1,0 +1,28 @@
+{application, mytest,
+ [{description, "mytest managed by Nova"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { mytest_app, []}},
+  {included_applications, [
+                           nova
+                          ]},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[
+        {dev_mode, true},
+        {web_port, 8090},
+        {nova_applications, [
+                               #{
+                                 name => mytest,
+                                 routes_file => "priv/mytest.routes.erl"
+                                }
+                              ]}
+
+       ]},
+  {modules, []},
+  {maintainers, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
